@@ -1,3 +1,5 @@
+package vandekadsye.tanghe.ActionAndPool;
+
 public class SequentialScheduler extends Scheduler {
 
     public SequentialScheduler() {
