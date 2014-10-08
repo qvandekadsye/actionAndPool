@@ -2,6 +2,8 @@ package vandekadsye.tanghe.ActionAndPool;
 
 import java.util.List;
 
+import vandekadsye.tanghe.ActionAndPool.Exceptions.ActionFinishedException;
+
 public class FairScheduler extends Scheduler {
 
     private int currentAction;
@@ -22,7 +24,7 @@ public class FairScheduler extends Scheduler {
     
     }
     
-    public void doStep() {
+    public void doStep() throws ActionFinishedException {
     
         if(!this.isFinished()) {
         

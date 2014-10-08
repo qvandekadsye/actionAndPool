@@ -32,4 +32,10 @@ public class ForseeableAction extends Action{
 	{
 		this.currentState++;
 	}
+
+	@Override
+	public boolean isInProgress() {
+		// TODO Auto-generated method stub
+		return false;
+	}
 }
