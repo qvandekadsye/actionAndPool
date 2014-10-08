@@ -22,7 +22,6 @@ public abstract class Scheduler extends Action {
     
     }
     
-    public abstract void doStep();
     
     public List<Action> getActions() {
     

@@ -2,6 +2,8 @@ package vandekadsye.tanghe.ActionAndPool;
 
 import java.util.List;
 
+import vandekadsye.tanghe.ActionAndPool.Exceptions.ActionFinishedException;
+
 public class SequentialScheduler extends Scheduler {
 
     public SequentialScheduler() {
@@ -16,7 +18,7 @@ public class SequentialScheduler extends Scheduler {
     
     }
 
-    public void doStep() {
+    public void doStep() throws ActionFinishedException {
         
         if(!this.isFinished()) {
         

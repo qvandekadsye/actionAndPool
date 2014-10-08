@@ -1,5 +1,7 @@
 package vandekadsye.tanghe.ActionAndPool;
 
+import vandekadsye.tanghe.ActionAndPool.Exceptions.ActionFinishedException;
+
 public abstract class Action {
 	
 	/**
@@ -20,7 +22,7 @@ public abstract class Action {
     /**
      * Do a new step in the action
      */
-    public abstract void doStep();
+    public abstract void doStep() throws ActionFinishedException;
     	
         
     
