@@ -6,16 +6,19 @@ import java.util.List;
 public abstract class Scheduler extends Action {
 
     protected List<Action> actions;
+    protected int progress;
     
     public Scheduler() {
     
         actions = new ArrayList<Action>();
+        progress = 0;
     
     }
     
     public Scheduler(List<Action> actions) {
     
         this.actions = actions;
+        progress = 0;
     
     }
     
@@ -31,6 +34,24 @@ public abstract class Scheduler extends Action {
     
         actions.add(a);
     
+    }
+    
+    public boolean isReady() {
+    	
+    	if(!isInProgress() && !isFinished())
+    		return true;
+    	else
+    		return false;
+    	
+    }
+    
+    public boolean isInProgress() {
+    	
+    	if(this.progress > 0 && !isFinished())
+    		return true;
+    	else
+    		return false;
+    	
     }
     
     public boolean isFinished() {
