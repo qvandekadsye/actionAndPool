@@ -8,15 +8,17 @@ public class FairScheduler extends Scheduler {
 
     public FairScheduler() {
     
+    	super();
         currentAction = 0;
-        super();
+        
     
     }
     
     public FairScheduler(List<Action> actions) {
     
+    	super(actions);
         currentAction = 0;
-        super(actions);
+        
     
     }
     
