@@ -1,6 +1,9 @@
 package vandekadsye.tanghe.ActionAndPool;
 
-public class Scheduler extends Action {
+import java.util.ArrayList;
+import java.util.List;
+
+public abstract class Scheduler extends Action {
 
     protected List<Action> actions;
     
