@@ -1,5 +1,7 @@
 package vandekadsye.tanghe.ActionAndPool;
 
+import java.util.List;
+
 public class FairScheduler extends Scheduler {
 
     private int currentAction;
