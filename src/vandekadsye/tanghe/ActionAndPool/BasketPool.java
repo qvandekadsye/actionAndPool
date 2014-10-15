@@ -1,3 +1,5 @@
+package vandekadsye.tanghe.ActionAndPool;
+
 public class BasketPool extends ResourcePool<Basket> {
 
 	public BasketPool(int nbBaskets) {
