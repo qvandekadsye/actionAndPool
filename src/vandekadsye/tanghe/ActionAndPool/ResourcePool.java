@@ -23,6 +23,8 @@ public abstract class ResourcePool<R>
 
 	public R provideResource() throws NoSuchElementException {
 
+		if(resources.isEmpty())
+			throw new NoSuchElementException();
 		R resource = resources.get(0);
 		resources.remove(0);
 		providedResources.add(resource);
