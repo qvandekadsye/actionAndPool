@@ -15,9 +15,9 @@ public abstract class Scheduler extends Action {
     
     }
     
-    public Scheduler(List<Action> actions) {
+    public Scheduler(List<? extends Action> actions) {
     
-        this.actions = actions;
+        this.actions = (List<Action>) actions;
         progress = 0;
     
     }
