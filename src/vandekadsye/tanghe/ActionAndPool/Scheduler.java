@@ -8,7 +8,7 @@ import java.util.List;
  */
 public abstract class Scheduler extends Action {
 
-    protected List<Action> actions;
+    protected List<? extends Action> actions;
     protected int progress;
     
     public Scheduler() {
@@ -19,11 +19,11 @@ public abstract class Scheduler extends Action {
     }
     
     /**
-     * @param actions a list of actions. Must be of type <code>List&lt;A&gt;</code> where A extends <code>Action</code>
+     * @param actions2 a list of actions. Must be of type <code>List&lt;A&gt;</code> where A extends <code>Action</code>
      */
-    public Scheduler(List<Action> actions) {
+    public Scheduler(List<? extends Action> actions2) {
     
-        this.actions = actions;
+        this.actions = actions2;
         progress = 0;
     
     }
@@ -31,7 +31,7 @@ public abstract class Scheduler extends Action {
     /**
      * @return a list of actions to be processed
      */
-    public List<Action> getActions() {
+    public List<? extends Action> getActions() {
     
         return actions;
     
