@@ -1,6 +1,8 @@
 package vandekadsye.tanghe.ActionAndPool;
 
-
+/**
+ * Exception thrown by doStep() method if the action is finished.
+ */
 public class ActionFinishedException extends Exception {
 	/**
 	 * Bien définir l'exception à hériter pour spécialiser

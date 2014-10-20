@@ -8,6 +8,7 @@ import org.junit.Test;
 
 import vandekadsye.tanghe.ActionAndPool.Action;
 import vandekadsye.tanghe.ActionAndPool.FairScheduler;
+import vandekadsye.tanghe.ActionAndPool.ForseeableAction;
 
 public class FairSchedulerTest extends SchedulerTest {
 
@@ -15,7 +16,7 @@ public class FairSchedulerTest extends SchedulerTest {
 	public void testDoStep() {
 		
 		List<Action> actions;
-		actions.add(new Action());
+		actions.add(new ForseeableAction());
 		FairScheduler scheduler = new FairScheduler(actions);
 		
 	}

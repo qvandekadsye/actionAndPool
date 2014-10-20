@@ -8,6 +8,9 @@ public class FairScheduler extends Scheduler {
 
     private int currentAction;
 
+    /**
+     * Constructor
+     */
     public FairScheduler() {
     
     	super();
