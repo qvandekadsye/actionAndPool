@@ -12,7 +12,7 @@ public class SequentialScheduler extends Scheduler {
     
     }
     
-    public SequentialScheduler(List<Action> actions) {
+    public SequentialScheduler(List<? extends Action> actions) {
     
         super(actions);
     

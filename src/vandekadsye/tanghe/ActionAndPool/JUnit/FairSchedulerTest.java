@@ -2,6 +2,7 @@ package vandekadsye.tanghe.ActionAndPool.JUnit;
 
 import static org.junit.Assert.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.Test;
@@ -15,8 +16,8 @@ public class FairSchedulerTest extends SchedulerTest {
 	@Test
 	public void testDoStep() {
 		
-		List<Action> actions;
-		actions.add(new ForseeableAction());
+		List<Action> actions = new ArrayList<Action>();
+		actions.add(new ForseeableAction(3));
 		FairScheduler scheduler = new FairScheduler(actions);
 		
 	}
