@@ -3,6 +3,9 @@ package vandekadsye.tanghe.ActionAndPool;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Manages a list of actions.
+ */
 public abstract class Scheduler extends Action {
 
     protected List<Action> actions;
@@ -15,20 +18,29 @@ public abstract class Scheduler extends Action {
     
     }
     
-    public Scheduler(List<? extends Action> actions) {
+    /**
+     * @param actions a list of actions. Must be of type <code>List&lt;A&gt;</code> where A extends <code>Action</code>
+     */
+    public Scheduler(List<Action> actions) {
     
-        this.actions = (List<Action>) actions;
+        this.actions = actions;
         progress = 0;
     
     }
     
-    
+    /**
+     * @return a list of actions to be processed
+     */
     public List<Action> getActions() {
     
         return actions;
     
     }
     
+    /**
+     * Adds <code>a</code> to the list of actions to process.
+     * @param a the action to add to the list.
+     */
     public void addAction(Action a) {
     
         actions.add(a);

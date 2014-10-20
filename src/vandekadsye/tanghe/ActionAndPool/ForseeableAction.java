@@ -2,19 +2,22 @@ package vandekadsye.tanghe.ActionAndPool;
 
 public class ForseeableAction extends Action{
 
-	private int currentState;
-	private int numberOfState;
+	private int currentStep;
+	private int numberOfSteps;
 	
-	public ForseeableAction(int numberOfState)
+	/**
+	 * Constructor
+	 * @param numberOfSteps a number of steps necessary to finish the action
+	 */
+	public ForseeableAction(int numberOfSteps)
 	{
-		this.numberOfState=numberOfState;
-		this.currentState=0;
+		this.numberOfSteps=numberOfSteps;
+		this.currentStep=0;
 	}
-	
 	public boolean isFinished()
 	{
 		boolean result=false;
-		if(this.currentState==this.numberOfState)
+		if(this.currentStep==this.numberOfSteps)
 			result=true;
 		return result;
 	}
@@ -22,7 +25,7 @@ public class ForseeableAction extends Action{
 	public boolean isReady()
 	{
 		boolean result=false;
-		if(this.currentState==0)
+		if(this.currentStep==0)
 			result=true;
 		return result;
 		
@@ -30,7 +33,7 @@ public class ForseeableAction extends Action{
 	
 	public void doStep()
 	{
-		this.currentState++;
+		this.currentStep++;
 	}
 
 	@Override
