@@ -5,17 +5,17 @@ import vandekadsye.tanghe.ActionAndPool.Exceptions.ActionFinishedException;
 public abstract class Action {
 	
 	/**
-	 * @return if the action is ready or not.
+	 * @return whether if the action is ready or not.
 	 */
 	public abstract boolean isReady();
 	
 	/**
-	 * @return if the action is in progress or not
+	 * @return whether if the action is in progress or not
 	 */
 	public abstract boolean isInProgress();
 
     /**
-     * @return if the action is finished or not
+     * @return whether if the action is finished or not
      */
     public abstract boolean isFinished();
     
@@ -23,8 +23,5 @@ public abstract class Action {
      * Do a new step in the action
      */
     public abstract void doStep() throws ActionFinishedException;
-    	
-        
-    
 
 }
