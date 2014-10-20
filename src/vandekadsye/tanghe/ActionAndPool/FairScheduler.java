@@ -8,9 +8,6 @@ public class FairScheduler extends Scheduler {
 
     private int currentAction;
 
-    /**
-     * Constructor
-     */
     public FairScheduler() {
     
     	super();
@@ -19,6 +16,10 @@ public class FairScheduler extends Scheduler {
     
     }
     
+    /**
+     * Constructor
+     * @param actions a list of actions the scheduler will work with.
+     */
     public FairScheduler(List<Action> actions) {
     
     	super(actions);
@@ -27,6 +28,10 @@ public class FairScheduler extends Scheduler {
     
     }
     
+    /**
+     * Does a step.
+     * @throws ActionFinishedException
+     */
     public void doStep() throws ActionFinishedException {
     
         if(!this.isFinished()) {

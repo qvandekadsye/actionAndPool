@@ -6,7 +6,7 @@ import java.util.NoSuchElementException;
 
 
 /**
- * Pool of resources. Must be subclassed
+ * Pool of resources. Must be extended.
  * @param <R> the resource to manage in the pool.
  */
 public abstract class ResourcePool<R>
