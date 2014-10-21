@@ -1,2 +1,10 @@
-1)Create Swimmer class
+1)Create Swimmer class (in progress);
+		ajouter takeressourceAction(basket, cubicle)
+	- 	ajouter les trois forseeableaction dans leur liste(undress)
+	-	ajouter freeresourceAction(cubicle)
+	- ajouter forseeableaction (swim)
+	- takeresourceaction (cabine)
+	- forsse (dressing)
+	-free cubicle
+	- free basket
 2) create cubicle class
