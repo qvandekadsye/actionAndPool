@@ -6,7 +6,11 @@ public class Main {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		BasketPool baskets = new BasketPool(6);
+		CubiclePool cubicles=new CubiclePool(3);
+		FairScheduler s=new FairScheduler();
+		
+		s.addAction(new Swimmer("Camille",baskets,cubicles,6,4,8));
 
 	}
 

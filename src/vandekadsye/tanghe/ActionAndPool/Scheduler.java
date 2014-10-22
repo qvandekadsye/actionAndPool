@@ -8,7 +8,7 @@ import java.util.List;
  */
 public abstract class Scheduler extends Action {
 
-    protected List<? extends Action> actions;
+    protected List<Action> actions;
     protected int progress;
     
     public Scheduler() {
@@ -21,7 +21,7 @@ public abstract class Scheduler extends Action {
     /**
      * @param actions2 a list of actions. Must be of type <code>List&lt;A&gt;</code> where A extends <code>Action</code>
      */
-    public Scheduler(List<? extends Action> actions2) {
+    public Scheduler(List<Action> actions2) {
     
         this.actions = actions2;
         progress = 0;
