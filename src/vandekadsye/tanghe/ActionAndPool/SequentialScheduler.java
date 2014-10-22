@@ -22,8 +22,8 @@ public class SequentialScheduler<A extends Action> extends Scheduler {
         
         if(!this.isFinished()) {
         
-            this.getActions().get(0).doStep();
-            if (this.getActions().get(0).isFinished())
+            ((Action) this.getActions().get(0)).doStep();
+            if (((Action) this.getActions().get(0)).isFinished())
                 this.getActions().remove(0);
         
         }
