@@ -8,12 +8,17 @@ public class ForseeableAction extends Action{
 	/**
 	 * Constructor
 	 * @param numberOfSteps a number of steps necessary to finish the action
+	 * @throws IllegalArgumentException thrown if the number of steps is lower than 1.
 	 */
-	public ForseeableAction(int numberOfSteps)
+	public ForseeableAction(int numberOfSteps) throws IllegalArgumentException
 	{
-		this.numberOfSteps=numberOfSteps;
-		this.currentStep=0;
+		if(numberOfSteps < 1)
+			throw new IllegalArgumentException("The number of steps cannot be lower than 1.");
+		
+		this.numberOfSteps = numberOfSteps;
+		this.currentStep = 0;
 	}
+	
 	public boolean isFinished()
 	{
 		boolean result=false;
@@ -25,8 +30,10 @@ public class ForseeableAction extends Action{
 	public boolean isReady()
 	{
 		boolean result=false;
-		if(this.currentStep==0)
-			result=true;
+		
+		if(this.currentStep == 0)
+			result = true;
+		
 		return result;
 		
 	}

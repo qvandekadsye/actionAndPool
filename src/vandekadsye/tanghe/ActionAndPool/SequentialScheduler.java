@@ -4,7 +4,7 @@ import java.util.List;
 
 import vandekadsye.tanghe.ActionAndPool.Exceptions.ActionFinishedException;
 
-public class SequentialScheduler<A extends Action> extends Scheduler {
+public class SequentialScheduler extends Scheduler {
 
 	public SequentialScheduler() {	
     
@@ -12,7 +12,7 @@ public class SequentialScheduler<A extends Action> extends Scheduler {
     
     }
     
-    public SequentialScheduler(List<A> actions) {
+    public SequentialScheduler(List<Action> actions) {
     
         super(actions);
     
@@ -23,8 +23,11 @@ public class SequentialScheduler<A extends Action> extends Scheduler {
         if(!this.isFinished()) {
         
             ((Action) this.getActions().get(0)).doStep();
+            
             if (((Action) this.getActions().get(0)).isFinished())
                 this.getActions().remove(0);
+            
+            progress++;
         
         }
         
