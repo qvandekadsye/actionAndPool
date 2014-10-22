@@ -5,15 +5,16 @@ import java.util.List;
 
 /**
  * Manages a list of actions.
+ * @param <A> the type of action
  */
-public abstract class Scheduler extends Action {
+public abstract class Scheduler<A extends Action> extends Action {
 
-    protected List<Action> actions;
+    protected List<A> actions;
     protected int progress;
     
     public Scheduler() {
     
-        actions = new ArrayList<Action>();
+        actions = new ArrayList<A>();
         progress = 0;
     
     }
@@ -21,7 +22,7 @@ public abstract class Scheduler extends Action {
     /**
      * @param actions2 a list of actions. Must be of type <code>List&lt;A&gt;</code> where A extends <code>Action</code>
      */
-    public Scheduler(List<Action> actions2) {
+    public Scheduler(List<A> actions2) {
     
         this.actions = actions2;
         progress = 0;
@@ -31,13 +32,13 @@ public abstract class Scheduler extends Action {
     /**
      * @return a list of actions to be processed
      */
-    public List<? extends Action> getActions() {
+    public List<A> getActions() {
     
         return actions;
     
     }
     
-    public Action getAction(int index) {
+    public A getAction(int index) {
     	return getActions().get(index);
     }
     
@@ -45,7 +46,7 @@ public abstract class Scheduler extends Action {
      * Adds <code>a</code> to the list of actions to process.
      * @param a the action to add to the list.
      */
-    public void addAction(Action a) {
+    public void addAction(A a) {
     
         actions.add(a);
     

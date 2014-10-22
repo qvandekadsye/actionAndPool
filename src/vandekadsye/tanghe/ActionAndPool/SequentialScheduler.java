@@ -4,15 +4,15 @@ import java.util.List;
 
 import vandekadsye.tanghe.ActionAndPool.Exceptions.ActionFinishedException;
 
-public class SequentialScheduler extends Scheduler {
+public class SequentialScheduler<A extends Action> extends Scheduler {
 
-    public SequentialScheduler() {
+	public SequentialScheduler() {	
     
         super();
     
     }
     
-    public SequentialScheduler(List<Action> actions) {
+    public SequentialScheduler(List<A> actions) {
     
         super(actions);
     
