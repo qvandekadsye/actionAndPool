@@ -1,6 +1,6 @@
 package vandekadsye.tanghe.ActionAndPool;
 
-public class Swimmer extends SequentialScheduler {
+public class Swimmer extends SequentialScheduler<Action> {
 	private String name;
 	private BasketPool basketManager;
 	private CubiclePool cubicleManager;
@@ -23,17 +23,23 @@ public class Swimmer extends SequentialScheduler {
 		this.undressingTime=timeToUndress;
 		this.swimmingTime=timeToSwim;
 		this.dressingTime=timeToDress;
-		this.actions.addAction(new TakeResourceAction(basketPoolToUse,new ResourcefulUser<Basket>()));
-		this.actions.addAction(new TakeResourceAction(cubiclePoolToUse,new ResourcefulUser()));
-		this.actions.addAction(new ForseeableAction(timeToUndress));
-		//this.actions.addActions(new FreeResourceAction());
-		this.actions.addAction(new ForseeableAction(timeToSwim));
-		this.actions.addAction(new TakeResourceAction(cubiclePoolToUse,new ResourcefulUser()));
-		this.actions.addAction(new ForseeableAction(timeToDress));
-		//this.actions.addActions(new FreeResourceAction());
-		//this.actions.addActions(new FreeResourceAction());
+		initializing(timeToUndress, timeToSwim, timeToDress);
 		
 		
+	}
+
+	public void initializing(int timeToUndress, int timeToSwim, int timeToDress) {
+		ResourcefulUser<Basket> basketUser=new ResourcefulUser<Basket>();
+		ResourcefulUser<Cubicle>cubicleUser=new ResourcefulUser<Cubicle>();
+		addAction(new TakeResourceAction<Basket>(basketManager,basketUser));
+		addAction(new TakeResourceAction<Cubicle>(cubicleManager,cubicleUser));
+		addAction(new ForseeableAction(timeToUndress));
+		addAction(new FreeResourceAction<Cubicle>(cubicleManager,cubicleUser));
+		addAction(new ForseeableAction(timeToSwim));
+		addAction(new TakeResourceAction<Cubicle>(cubicleManager,cubicleUser));
+		addAction(new ForseeableAction(timeToDress));
+		addAction(new FreeResourceAction<Cubicle>(cubicleManager,cubicleUser));
+		addAction(new FreeResourceAction<Basket>(basketManager,basketUser));
 	}
 
 	
