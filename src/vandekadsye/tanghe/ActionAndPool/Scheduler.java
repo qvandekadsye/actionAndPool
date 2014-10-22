@@ -37,6 +37,10 @@ public abstract class Scheduler extends Action {
     
     }
     
+    public Action getAction(int index) {
+    	return getActions().get(index);
+    }
+    
     /**
      * Adds <code>a</code> to the list of actions to process.
      * @param a the action to add to the list.
