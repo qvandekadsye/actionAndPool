@@ -2,15 +2,15 @@ package vandekadsye.tanghe.ActionAndPool;
 
 import vandekadsye.tanghe.ActionAndPool.Exceptions.ActionFinishedException;
 
-public class FreeResourceAction extends Action{
-	private ResourcePool<Resource> pool;
-	private ResourcefulUser<Resource> user;
+public class FreeResourceAction<R extends Resource> extends Action{
+	private ResourcePool<R> pool;
+	private ResourcefulUser<R> user;
 	
 	/**
 	 * @param poolToUse the pool taking the resource.
 	 * @param aUser the user that will release the resource.
 	 */
-	public FreeResourceAction(ResourcePool<Resource> poolToUse, ResourcefulUser<Resource> aUser)
+	public FreeResourceAction(ResourcePool<R> poolToUse, ResourcefulUser<R> aUser)
 	{
 		this.pool=poolToUse;
 		this.user=aUser;
