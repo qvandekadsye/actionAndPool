@@ -42,7 +42,7 @@ public class FairScheduler extends Scheduler {
             
             else {
             
-                this.currentAction++;
+                
                 if(this.currentAction > this.getActions().size())
                     this.currentAction = 0;
                 
