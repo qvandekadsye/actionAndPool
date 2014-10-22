@@ -7,6 +7,7 @@ import java.util.List;
 
 import org.junit.Test;
 
+import vandekadsye.tanghe.ActionAndPool.Action;
 import vandekadsye.tanghe.ActionAndPool.ForseeableAction;
 import vandekadsye.tanghe.ActionAndPool.SequentialScheduler;
 import vandekadsye.tanghe.ActionAndPool.Exceptions.ActionFinishedException;
@@ -15,9 +16,11 @@ public class SequentialSchedulerTest {
 
 	@Test
 	public void testProgression() {
-		List<ForseeableAction> list = new ArrayList<ForseeableAction>();
-		list.add(new ForseeableAction(1));
-		list.add(new ForseeableAction(2));
+		List<Action> list = new ArrayList<Action>();
+		Action a1 = new ForseeableAction(1);
+		Action a2 = new ForseeableAction(2);
+		list.add(a1);
+		list.add(a2);
 		
 		SequentialScheduler s = new SequentialScheduler(list);
 		/*
@@ -38,13 +41,13 @@ public class SequentialSchedulerTest {
 		assertFalse(s.isInProgress());
 		assertFalse(s.isFinished());
 		
-		assertTrue(s.getAction(0).isReady());
-		assertFalse(s.getAction(0).isInProgress());
-		assertFalse(s.getAction(0).isFinished());
+		assertTrue(a1.isReady());
+		assertFalse(a1.isInProgress());
+		assertFalse(a1.isFinished());
 		
-		assertTrue(s.getAction(1).isReady());
-		assertFalse(s.getAction(1).isInProgress());
-		assertFalse(s.getAction(1).isFinished());
+		assertTrue(a2.isReady());
+		assertFalse(a2.isInProgress());
+		assertFalse(a2.isFinished());
 		
 		// Doing a step
 		try {
@@ -52,6 +55,7 @@ public class SequentialSchedulerTest {
 		} catch (ActionFinishedException e) {
 			fail("Thrown ActionFinishedException at a time it should not.");
 		}
+		
 		
 		/*
 		 * At this time:
@@ -71,13 +75,13 @@ public class SequentialSchedulerTest {
 		assertTrue(s.isInProgress());
 		assertFalse(s.isFinished());
 		
-		assertFalse(s.getAction(0).isReady());
-		assertFalse(s.getAction(0).isInProgress());
-		assertTrue(s.getAction(0).isFinished());
+		assertFalse(a1.isReady());
+		assertFalse(a1.isInProgress());
+		assertTrue(a1.isFinished());
 		
-		assertTrue(s.getAction(1).isReady());
-		assertFalse(s.getAction(1).isInProgress());
-		assertFalse(s.getAction(1).isFinished());
+		assertTrue(a2.isReady());
+		assertFalse(a2.isInProgress());
+		assertFalse(a2.isFinished());
 		
 		// Doing a step
 		try {
@@ -104,13 +108,13 @@ public class SequentialSchedulerTest {
 		assertTrue(s.isInProgress());
 		assertFalse(s.isFinished());
 		
-		assertFalse(s.getAction(0).isReady());
-		assertFalse(s.getAction(0).isInProgress());
-		assertTrue(s.getAction(0).isFinished());
+		assertFalse(a1.isReady());
+		assertFalse(a1.isInProgress());
+		assertTrue(a1.isFinished());
 		
-		assertFalse(s.getAction(1).isReady());
-		assertTrue(s.getAction(1).isInProgress());
-		assertFalse(s.getAction(1).isFinished());
+		assertFalse(a2.isReady());
+		assertTrue(a2.isInProgress());
+		assertFalse(a2.isFinished());
 		
 		// Doing a step
 		try {
