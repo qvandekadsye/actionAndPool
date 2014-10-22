@@ -2,15 +2,15 @@ package vandekadsye.tanghe.ActionAndPool;
 
 import vandekadsye.tanghe.ActionAndPool.Exceptions.ActionFinishedException;
 
-public class TakeResourceAction extends Action {
-	private ResourcePool<Resource> pool;
-	private ResourcefulUser<Resource> user;
+public class TakeResourceAction<R extends Resource> extends Action {
+	private ResourcePool<R> pool;
+	private ResourcefulUser<R> user;
 	
 	/**
 	 * @param poolToUse The pool of resource to use.
 	 * @param aUser The user who will store the resource.
 	 */
-	public TakeResourceAction(ResourcePool<Resource> poolToUse, ResourcefulUser<Resource> aUser)
+	public TakeResourceAction(ResourcePool<R> poolToUse, ResourcefulUser<R> aUser)
 	{
 		this.pool=poolToUse;
 		this.user = aUser;

@@ -23,7 +23,7 @@ public class Swimmer extends SequentialScheduler {
 		this.undressingTime=timeToUndress;
 		this.swimmingTime=timeToSwim;
 		this.dressingTime=timeToDress;
-		this.actions.addAction(new TakeResourceAction(basketPoolToUse,new ResourcefulUser()));
+		this.actions.addAction(new TakeResourceAction(basketPoolToUse,new ResourcefulUser<Basket>()));
 		this.actions.addAction(new TakeResourceAction(cubiclePoolToUse,new ResourcefulUser()));
 		this.actions.addAction(new ForseeableAction(timeToUndress));
 		//this.actions.addActions(new FreeResourceAction());
