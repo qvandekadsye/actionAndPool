@@ -49,7 +49,7 @@ public class ForseeableAction extends Action{
 
 	@Override
 	public boolean isInProgress() {
-		if(this.currentStep>0 && !isFinished())
+		if(this.currentStep > 0 && this.currentStep < this.numberOfSteps)
 			return true;
 		else
 			return false;
