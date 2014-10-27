@@ -23,7 +23,11 @@ public class ForseeableAction extends Action{
 	{
 		boolean result=false;
 		if(this.currentStep==this.numberOfSteps)
+		{
 			result=true;
+			System.out.println("A forseable action is finished");
+		}
+		
 		return result;
 	}
 	

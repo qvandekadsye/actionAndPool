@@ -31,14 +31,21 @@ public class TakeResourceAction<R extends Resource> extends Action {
 	@Override
 	public boolean isFinished() {
 		if(user.getResource()==null)
+		{
+			System.out.println("Ressource is not taken");
 			return false;
+		}
+			
 		else
+		{
+			System.out.println("Ressource is taken");
 			return true;
+		}
 	}
 
 	@Override
 	public void doStep() throws ActionFinishedException {
-		if(isReady())
+		if(!isReady())
 		{
 			user.setResource(pool.provideResource());
 			

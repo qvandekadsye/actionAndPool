@@ -31,9 +31,15 @@ public class FreeResourceAction<R extends Resource> extends Action{
 	@Override
 	public boolean isFinished() {
 		if(user.getResource()!=null)
+		{
+			System.out.println("Resource is not free");
 			return false;
+		}
 		else
+		{
+			System.out.println("Ressource is free");
 			return true;
+		}
 	}
 
 	@Override
