@@ -1,6 +1,7 @@
 package vandekadsye.tanghe.ActionAndPool;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 
 import vandekadsye.tanghe.ActionAndPool.Exceptions.ActionFinishedException;
 
@@ -39,14 +40,22 @@ public class FairScheduler extends Scheduler {
     
         if(!this.getAction(currentAction).isFinished()) {
         
-            this.getActions().get(this.currentAction).doStep();
+        	try {
             
-            if(this.getActions().get(this.currentAction).isFinished()) {
-            	
-            	System.out.println("An action is finished in fscheduler.");
-                this.getActions().remove(this.currentAction);
-                
-            }
+        		this.getActions().get(this.currentAction).doStep();
+            
+	            if(this.getActions().get(this.currentAction).isFinished()) {
+	            	
+	            	System.out.println("An action is finished in fscheduler.");
+	                this.getActions().remove(this.currentAction);
+	                
+	            }
+            
+        	} catch(NoSuchElementException e) {
+        		
+        		System.out.println("Taking resource failed!");
+        		
+        	}
         
         }
     
