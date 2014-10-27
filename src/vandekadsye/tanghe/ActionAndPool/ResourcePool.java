@@ -22,6 +22,8 @@ public abstract class ResourcePool<R>
 	public ResourcePool(int nbResources) {
 
 		this.resources = new ArrayList<R>();
+		this.providedResources = new ArrayList<R>();
+		
 		for(int i = 0; i < nbResources; i++) {
 			
 			// this.resources.add(new R()); → interdit
