@@ -12,7 +12,7 @@ public class FairScheduler extends Scheduler {
     public FairScheduler() {
     
     	super();
-        currentAction = 0;
+        currentAction = -1;
     
     }
     
@@ -23,7 +23,7 @@ public class FairScheduler extends Scheduler {
     public FairScheduler(List<Action> actions) {
     
     	super(actions);
-        currentAction = 0;
+        currentAction = -1;
         
     }
     
