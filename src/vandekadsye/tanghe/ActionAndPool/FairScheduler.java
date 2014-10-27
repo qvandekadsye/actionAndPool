@@ -34,6 +34,7 @@ public class FairScheduler extends Scheduler {
     public void doStep() throws ActionFinishedException {
     	
     	currentAction++;
+    	hasStarted = true;
     	
     	if(this.currentAction >= this.getActions().size())
             this.currentAction = 0;
