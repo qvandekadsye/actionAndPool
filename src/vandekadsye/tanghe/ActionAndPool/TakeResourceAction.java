@@ -45,7 +45,7 @@ public class TakeResourceAction<R extends Resource> extends Action {
 
 	@Override
 	public void doStep() throws ActionFinishedException {
-		if(isReady())
+		if(!isReady())
 		{
 			user.setResource(pool.provideResource());
 			
