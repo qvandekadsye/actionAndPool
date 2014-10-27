@@ -49,7 +49,9 @@ public class ForseeableAction extends Action{
 
 	@Override
 	public boolean isInProgress() {
-		// TODO Auto-generated method stub
-		return false;
+		if(this.currentStep>0)
+			return true;
+		else
+			return false;
 	}
 }
