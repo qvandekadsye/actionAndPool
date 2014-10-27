@@ -31,7 +31,6 @@ public class FairScheduler extends Scheduler {
      * @throws ActionFinishedException
      */
     public void doStep() throws ActionFinishedException {
-    	currentAction++;
     
         if(!this.isFinished()) {
         
@@ -54,7 +53,11 @@ public class FairScheduler extends Scheduler {
         
         }
         
-        
+        else {
+        	
+        	currentAction++;
+        	
+        }
     
     }
 
