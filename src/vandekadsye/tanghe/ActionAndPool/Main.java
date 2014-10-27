@@ -19,7 +19,7 @@ public class Main {
 		s.addAction(new Swimmer("Ange",baskets,cubicles,3,7,5));
 		s.addAction(new Swimmer("Louison",baskets,cubicles,18,3,3));
 		s.addAction(new Swimmer("Charlie",baskets,cubicles,3,6,10));
-		s.addAction(new Swimmer("Ange",baskets,cubicles,6,5,7));
+		s.addAction(new Swimmer("Alexis",baskets,cubicles,6,5,7));
 		
 		int nbstep=0;
 		while(!s.isFinished())
