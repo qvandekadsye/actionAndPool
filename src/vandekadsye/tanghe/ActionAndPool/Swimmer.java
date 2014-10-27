@@ -56,7 +56,7 @@ public class Swimmer extends SequentialScheduler {
 
 	@Override
 	public void doStep() throws ActionFinishedException {
-		
+		System.out.println(this.getName());
 		super.doStep();
 		
 	}
