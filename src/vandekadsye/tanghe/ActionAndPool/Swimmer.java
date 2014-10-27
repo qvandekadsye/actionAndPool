@@ -1,5 +1,7 @@
 package vandekadsye.tanghe.ActionAndPool;
 
+import vandekadsye.tanghe.ActionAndPool.Exceptions.ActionFinishedException;
+
 public class Swimmer extends SequentialScheduler {
 	private String name;
 	private BasketPool basketManager;
@@ -52,7 +54,13 @@ public class Swimmer extends SequentialScheduler {
 		return this.name;
 	}
 
-	
+	@Override
+	public void doStep() throws ActionFinishedException {
+		
+		super.doStep();
+		
 	}
+	
+}
 
 

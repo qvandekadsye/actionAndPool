@@ -44,7 +44,9 @@ public class ForseeableActionTest {
 
 	@Test
 	public void testIsFinished() {
+		
 		fa1.doStep();
+		fa2.doStep();
 		fa2.doStep();
 		
 		assertFalse(fa1.isReady());
@@ -55,6 +57,7 @@ public class ForseeableActionTest {
 		
 		assertTrue(fa1.isFinished());
 		assertTrue(fa2.isFinished());
+		
 	}
 
 }
