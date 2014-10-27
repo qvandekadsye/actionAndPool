@@ -22,13 +22,17 @@ public class FairSchedulerTest extends ForseeableActionTest {
 	}
 	
 	@Test
-	public void testDoStep() throws ActionFinishedException {
+	public void testAll() throws ActionFinishedException {
 		
 		super.testIsReady();
 		
 		fs.doStep();
-		
 		super.testIsInProgress();
+		assertTrue(fs.isInProgress());
+		
+		fs.doStep();
+		super.testIsFinished();
+		assertTrue(fs.isFinished());
 		
 	}
 
