@@ -37,7 +37,7 @@ public class FairScheduler extends Scheduler {
     	if(this.currentAction == this.getActions().size())
             this.currentAction = 0;
     
-        if(!this.isFinished()) {
+        if(!this.getAction(currentAction).isFinished()) {
         
             this.getActions().get(this.currentAction).doStep();
             
