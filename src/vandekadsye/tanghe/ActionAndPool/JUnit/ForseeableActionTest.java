@@ -5,6 +5,7 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 import vandekadsye.tanghe.ActionAndPool.ForseeableAction;
+import vandekadsye.tanghe.ActionAndPool.Exceptions.ActionFinishedException;
 
 public class ForseeableActionTest {
 
@@ -18,6 +19,19 @@ public class ForseeableActionTest {
 	}
 	
 	@Test
+	public void testAll() throws ActionFinishedException {
+		
+		testIsReady();
+		
+		fa2.doStep();
+		testIsInProgress();
+		
+		fa1.doStep();
+		fa2.doStep();
+		testIsFinished();
+		
+	}
+	
 	public void testIsReady() {
 		
 		assertTrue(fa1.isReady());
@@ -31,10 +45,7 @@ public class ForseeableActionTest {
 		
 	}
 
-	@Test
 	public void testIsInProgress() {
-
-		fa2.doStep();
 		
 		assertFalse(fa2.isReady());
 		assertTrue(fa2.isInProgress());
@@ -42,12 +53,7 @@ public class ForseeableActionTest {
 		
 	}
 
-	@Test
 	public void testIsFinished() {
-		
-		fa1.doStep();
-		fa2.doStep();
-		fa2.doStep();
 		
 		assertFalse(fa1.isReady());
 		assertFalse(fa2.isReady());

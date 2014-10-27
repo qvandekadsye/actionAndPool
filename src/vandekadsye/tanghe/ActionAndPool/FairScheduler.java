@@ -52,6 +52,12 @@ public class FairScheduler extends Scheduler {
             }
         
         }
+        
+        else {
+        	
+        	currentAction++;
+        	
+        }
     
     }
 
