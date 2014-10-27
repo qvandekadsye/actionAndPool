@@ -35,10 +35,10 @@ public class FairScheduler extends Scheduler {
     	
     	currentAction++;
     	
-    	if(this.currentAction == this.getActions().size())
+    	if(this.currentAction >= this.getActions().size())
             this.currentAction = 0;
-    
-        if(!this.getAction(currentAction).isFinished()) {
+    	
+    	if(!this.getAction(currentAction).isFinished()) {
         
         	try {
             
