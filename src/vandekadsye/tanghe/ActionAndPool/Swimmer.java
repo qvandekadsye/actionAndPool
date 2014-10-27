@@ -46,6 +46,11 @@ public class Swimmer extends SequentialScheduler {
 		addAction(new FreeResourceAction<Cubicle>(cubicleManager,cubicleUser));
 		addAction(new FreeResourceAction<Basket>(basketManager,basketUser));
 	}
+	
+	public String getName()
+	{
+		return this.name;
+	}
 
 	
 	}
