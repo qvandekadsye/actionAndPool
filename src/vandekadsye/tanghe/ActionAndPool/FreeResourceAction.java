@@ -19,7 +19,7 @@ public class FreeResourceAction<R extends Resource> extends Action{
 	@Override
 	public boolean isReady() {
 		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 	@Override
