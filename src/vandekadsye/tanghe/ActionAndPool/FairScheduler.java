@@ -12,7 +12,6 @@ public class FairScheduler extends Scheduler {
     
     	super();
         currentAction = 0;
-        
     
     }
     
@@ -25,7 +24,6 @@ public class FairScheduler extends Scheduler {
     	super(actions);
         currentAction = 0;
         
-    
     }
     
     /**
@@ -37,10 +35,12 @@ public class FairScheduler extends Scheduler {
         if(!this.isFinished()) {
         
             this.getActions().get(this.currentAction).doStep();
-            if(this.getActions().get(this.currentAction).isFinished())
-            {
+            
+            if(this.getActions().get(this.currentAction).isFinished()) {
+            	
             	System.out.println("An action is finished in fscheduler.");
                 this.getActions().remove(this.currentAction);
+                
             }
             
             else {

@@ -8,7 +8,7 @@ import vandekadsye.tanghe.ActionAndPool.ForseeableAction;
 
 public class ForseeableActionTest {
 
-	private ForseeableAction fa1, fa2;
+	public ForseeableAction fa1, fa2;
 	
 	public ForseeableActionTest() throws IllegalArgumentException {
 		

@@ -2,23 +2,33 @@ package vandekadsye.tanghe.ActionAndPool.JUnit;
 
 import static org.junit.Assert.*;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.junit.Test;
 
-import vandekadsye.tanghe.ActionAndPool.Action;
 import vandekadsye.tanghe.ActionAndPool.FairScheduler;
-import vandekadsye.tanghe.ActionAndPool.ForseeableAction;
+import vandekadsye.tanghe.ActionAndPool.Exceptions.ActionFinishedException;
 
-public class FairSchedulerTest extends SchedulerTest {
+public class FairSchedulerTest extends ForseeableActionTest {
 
-	@Test
-	public void testDoStep() {
+	public FairScheduler fs;
+	
+	public FairSchedulerTest() {
 		
-		List<Action> actions = new ArrayList<Action>();
-		actions.add(new ForseeableAction(3));
-		FairScheduler scheduler = new FairScheduler(actions);
+		super();
+		
+		fs = new FairScheduler();
+		fs.addAction(fa1);
+		fs.addAction(fa2);
+		
+	}
+	
+	@Test
+	public void testDoStep() throws ActionFinishedException {
+		
+		super.testIsReady();
+		
+		fs.doStep();
+		
+		super.testIsInProgress();
 		
 	}
 
