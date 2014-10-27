@@ -45,6 +45,7 @@ public class ForseeableAction extends Action{
 	public void doStep()
 	{
 		this.currentStep++;
+		System.out.println("Action " +this.currentStep+"/"+this.numberOfSteps+" is done");
 	}
 
 	@Override
