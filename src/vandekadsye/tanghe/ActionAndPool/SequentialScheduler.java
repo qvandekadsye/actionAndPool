@@ -25,7 +25,11 @@ public class SequentialScheduler extends Scheduler {
             ((Action) this.getActions().get(0)).doStep();
             
             if (((Action) this.getActions().get(0)).isFinished())
+            {	
+            
                 this.getActions().remove(0);
+                System.out.println("An action is finished");
+            }
             
             progress++;
         
