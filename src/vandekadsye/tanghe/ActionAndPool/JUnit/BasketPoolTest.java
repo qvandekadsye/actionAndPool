@@ -7,6 +7,8 @@ import org.junit.Test;
 import vandekadsye.tanghe.ActionAndPool.Basket;
 import vandekadsye.tanghe.ActionAndPool.BasketPool;
 
+import java.util.NoSuchElementException;
+
 public class BasketPoolTest {
 	public BasketPool baskets;
 
@@ -16,6 +18,12 @@ public class BasketPoolTest {
 		Basket basket=null;
 		basket=baskets.provideResource();
 		assertNotNull(basket);
+		
+	}
+	
+	@Test(expected=NoSuchElementException)
+	public void NoSuchElementExceptionTest()
+	{
 		
 	}
 
