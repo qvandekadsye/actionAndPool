@@ -52,12 +52,18 @@ public class TakeResourceAction<R extends Resource> extends Action {
 
 	@Override
 	public void doStep() throws ActionFinishedException {
+		
+		hasStarted = true;
+		
 		System.out.println("Trying to take " +this.pool.getClass().getName());
-		if(!isReady())
+		if(!isFinished())
 		{
+			
 			user.setResource(pool.provideResource());
 			
 		}
+		else
+			throw new ActionFinishedException();
 		
 	}
 
