@@ -19,50 +19,26 @@ public class SequentialSchedulerTest extends ForseeableActionTest {
 		List<Action> list = new ArrayList<Action>();
 		Action a1 = new ForseeableAction(1);
 		Action a2 = new ForseeableAction(2);
+		Action a3 = new ForseeableAction(3);
 		list.add(a1);
 		list.add(a2);
+		list.add(a3);
 		
 		SequentialScheduler s = new SequentialScheduler(list);
 		testIsReady(s);
-		
 		testIsReady(a1);
 		testIsReady(a2);
+		testIsReady(a3);
 		
-		// Doing a step
+		// Step 1/1 for a1 
 		s.doStep();
+		testIsInProgress(s);
+		testIsFinished(a1);
+		testIsReady(a2);
+		testIsReady(a3);
 		
-		/*
-		 * At this time:
-		 * 						+-----------------------------------------------+
-		 * 						|		 Expected value for object...			|
-		 * +--------------------+---------------------------+-------------------+
-		 * | Method				|  s	| action1 (1 step)	| action2 (2 steps)	|
-		 * +--------------------+---------------------------+-------------------+
-		 * | isReady()			| false	| false				| true				| 
-		 * +--------------------+---------------------------+-------------------+
-		 * | isInProgress()		| true	| false				| false				| 
-		 * +--------------------+---------------------------+-------------------+
-		 * | isFinished()		| false	| true				| false				| 
-		 * +--------------------+---------------------------+-------------------+
-		 */
-		assertFalse(s.isReady());
-		assertTrue(s.isInProgress());
-		assertFalse(s.isFinished());
-		
-		assertFalse(a1.isReady());
-		assertFalse(a1.isInProgress());
-		assertTrue(a1.isFinished());
-		
-		assertTrue(a2.isReady());
-		assertFalse(a2.isInProgress());
-		assertFalse(a2.isFinished());
-		
-		// Doing a step
-		try {
-			s.doStep();
-		} catch(ActionFinishedException e) {
-			fail("Thrown ActionFinishedException at a time it should not.");
-		}
+		// Step 1/2 for a2
+		s.doStep();
 		
 		/*
 		 * At this time:

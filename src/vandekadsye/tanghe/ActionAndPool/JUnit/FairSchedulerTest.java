@@ -1,7 +1,5 @@
 package vandekadsye.tanghe.ActionAndPool.JUnit;
 
-import static org.junit.Assert.*;
-
 import org.junit.Test;
 
 import vandekadsye.tanghe.ActionAndPool.FairScheduler;
@@ -34,49 +32,49 @@ public class FairSchedulerTest extends ForseeableActionTest {
 		testIsReady(fa1);
 		testIsReady(fa2);
 		testIsReady(fa3);
-		assertTrue(fs.isReady());
+		testIsReady(fs);
 		
 		// Step 1/1 for fa1
 		fs.doStep();
 		testIsFinished(fa1);
 		testIsReady(fa2);
 		testIsReady(fa3);
-		assertTrue(fs.isInProgress());
+		testIsInProgress(fs);
 		
 		// Step 1/2 for fa2
 		fs.doStep();
 		testIsFinished(fa1);
 		testIsInProgress(fa2);
 		testIsReady(fa3);
-		assertTrue(fs.isInProgress());
+		testIsInProgress(fs);
 		
 		// Step 1/3 for fa3
 		fs.doStep();
 		testIsFinished(fa1);
 		testIsInProgress(fa2);
 		testIsInProgress(fa3);
-		assertTrue(fs.isInProgress());
+		testIsInProgress(fs);
 		
 		// Step 2/2 for fa2
 		fs.doStep();
 		testIsFinished(fa1);
 		testIsFinished(fa2);
 		testIsInProgress(fa3);
-		assertTrue(fs.isInProgress());
+		testIsInProgress(fs);
 		
 		// Step 2/3 for fa3
 		fs.doStep();
 		testIsFinished(fa1);
 		testIsFinished(fa2);
 		testIsInProgress(fa3);
-		assertTrue(fs.isInProgress());
+		testIsInProgress(fs);
 		
 		// Step 3/3 for fa3 (scheduler finished)
 		fs.doStep();
 		testIsFinished(fa1);
 		testIsFinished(fa2);
 		testIsFinished(fa3);
-		assertTrue(fs.isFinished());
+		testIsFinished(fs);
 		
 	}
 

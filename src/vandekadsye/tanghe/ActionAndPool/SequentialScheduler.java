@@ -35,6 +35,9 @@ public class SequentialScheduler extends Scheduler {
         
         }
         
+        else
+        	throw new ActionFinishedException();
+        
     }
 
 }
