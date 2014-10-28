@@ -6,6 +6,6 @@ Quentin :
 	- TakeResourceAction
 
 Jérôme :
-	- FairScheduler
+	- FairScheduler (OK)
 	- ForseeableAction (OK)
 	- SequentialScheduler
