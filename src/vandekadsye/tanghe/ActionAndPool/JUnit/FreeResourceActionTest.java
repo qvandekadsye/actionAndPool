@@ -36,8 +36,8 @@ public class FreeResourceActionTest {
 		aUser=new ResourcefulUser<Cubicle>();
 		takeAction=new TakeResourceAction<Cubicle>(aCubiclePool,aUser);
 		freeAction=new FreeResourceAction<Cubicle>(aCubiclePool,aUser);
-		assertFalse(freeAction.isFinished());
 		takeAction.doStep();
+		assertFalse(freeAction.isFinished());
 		freeAction.doStep();
 		assertTrue(freeAction.isFinished());
 	}
@@ -49,8 +49,8 @@ public class FreeResourceActionTest {
 		aUser=new ResourcefulUser<Cubicle>();
 		takeAction=new TakeResourceAction<Cubicle>(aCubiclePool,aUser);
 		freeAction=new FreeResourceAction<Cubicle>(aCubiclePool,aUser);
-		assertTrue(freeAction.isReady());
 		takeAction.doStep();
+		assertTrue(freeAction.isReady());
 		freeAction.doStep();
 		assertFalse(freeAction.isReady());
 	}
@@ -63,7 +63,7 @@ public class FreeResourceActionTest {
 		takeAction=new TakeResourceAction<Cubicle>(aCubiclePool,aUser);
 		freeAction=new FreeResourceAction<Cubicle>(aCubiclePool,aUser);
 		assertFalse(freeAction.isInProgress());
-		freeAction.doStep();
+		takeAction.doStep();
 		assertTrue(freeAction.isInProgress());
 	}
 	
