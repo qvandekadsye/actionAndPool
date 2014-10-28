@@ -44,11 +44,13 @@ public class FreeResourceAction<R extends Resource> extends Action{
 
 	@Override
 	public void doStep() throws ActionFinishedException {
-		if(isReady())
+		if(!isFinished())
 		{
 			pool.freeResource(user.getResource());
 			user.resetResource();
 		}
+		else
+			throw new ActionFinishedException();
 	}
 
 }
