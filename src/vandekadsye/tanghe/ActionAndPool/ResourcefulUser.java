@@ -21,7 +21,7 @@ public class ResourcefulUser <R extends Resource> {
 	}
 	
 	/**
-	 * Suppress th resource of the resourcefulUser.
+	 * Suppress the resource of the resourcefulUser.
 	 */
 	public void resetResource()
 	{

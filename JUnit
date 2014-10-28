@@ -1,0 +1,11 @@
+/!\ Penser à tester les méthodes héritées lorsqu'il y en a (au moin une fois)
+
+Quentin :
+	- BasketPool
+	- FreeResourceAction
+	- TakeResourceAction
+
+Jérôme :
+	- FairScheduler
+	- ForseeableAction (OK)
+	- SequentialScheduler
