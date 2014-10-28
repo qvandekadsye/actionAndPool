@@ -28,5 +28,44 @@ public class FreeResourceActionTest {
 		freeAction.doStep();
 		
 	}
+	
+	@Test
+	public void isFinishedTest() throws ActionFinishedException
+	{
+		aCubiclePool=new CubiclePool(5);
+		aUser=new ResourcefulUser<Cubicle>();
+		takeAction=new TakeResourceAction<Cubicle>(aCubiclePool,aUser);
+		freeAction=new FreeResourceAction<Cubicle>(aCubiclePool,aUser);
+		assertFalse(freeAction.isFinished());
+		takeAction.doStep();
+		freeAction.doStep();
+		assertTrue(freeAction.isFinished());
+	}
+	
+	@Test
+	public void isReadyTest() throws ActionFinishedException
+	{
+		aCubiclePool=new CubiclePool(5);
+		aUser=new ResourcefulUser<Cubicle>();
+		takeAction=new TakeResourceAction<Cubicle>(aCubiclePool,aUser);
+		freeAction=new FreeResourceAction<Cubicle>(aCubiclePool,aUser);
+		assertTrue(freeAction.isReady());
+		takeAction.doStep();
+		freeAction.doStep();
+		assertFalse(freeAction.isReady());
+	}
+	
+	@Test
+	public void isInProgressTest() throws ActionFinishedException
+	{
+		aCubiclePool=new CubiclePool(0);
+		aUser=new ResourcefulUser<Cubicle>();
+		takeAction=new TakeResourceAction<Cubicle>(aCubiclePool,aUser);
+		freeAction=new FreeResourceAction<Cubicle>(aCubiclePool,aUser);
+		assertFalse(freeAction.isInProgress());
+		freeAction.doStep();
+		assertTrue(freeAction.isInProgress());
+	}
+	
 
 }
