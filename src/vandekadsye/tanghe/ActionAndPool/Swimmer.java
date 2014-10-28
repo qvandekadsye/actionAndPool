@@ -6,7 +6,6 @@ public class Swimmer extends SequentialScheduler {
 	private String name;
 	private BasketPool basketManager;
 	private CubiclePool cubicleManager;
-	private int undressingTime, swimmingTime, dressingTime;
 	
 	/**
 	 * Swimmer class constructor.
@@ -22,9 +21,7 @@ public class Swimmer extends SequentialScheduler {
 		this.name=swimmerName;
 		this.basketManager=basketPoolToUse;
 		this.cubicleManager=cubiclePoolToUse;
-		this.undressingTime=timeToUndress;
-		this.swimmingTime=timeToSwim;
-		this.dressingTime=timeToDress;
+
 		initializing(timeToUndress, timeToSwim, timeToDress);
 		
 		
