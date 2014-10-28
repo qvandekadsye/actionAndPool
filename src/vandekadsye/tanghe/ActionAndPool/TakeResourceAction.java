@@ -5,6 +5,7 @@ import vandekadsye.tanghe.ActionAndPool.Exceptions.ActionFinishedException;
 public class TakeResourceAction<R extends Resource> extends Action {
 	private ResourcePool<R> pool;
 	private ResourcefulUser<R> user;
+	private boolean hasStarted;
 	
 	/**
 	 * @param poolToUse The pool of resource to use.
@@ -14,11 +15,13 @@ public class TakeResourceAction<R extends Resource> extends Action {
 	{
 		this.pool=poolToUse;
 		this.user = aUser;
+		
+		hasStarted = false;
 	}
 
 	@Override
 	public boolean isReady() {
-		if(!isInProgress() && !isFinished())
+		if(!hasStarted && !isFinished())
     		return true;
     	else
     		return false;
@@ -26,7 +29,7 @@ public class TakeResourceAction<R extends Resource> extends Action {
 
 	@Override
 	public boolean isInProgress() {
-		if(isFinished()==false && isReady()==false)
+		if(!isFinished() && !isReady())
 			return true;
 		else
 			return false;
