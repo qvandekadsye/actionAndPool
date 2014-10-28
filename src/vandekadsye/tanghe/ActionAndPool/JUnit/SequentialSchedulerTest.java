@@ -12,10 +12,10 @@ import vandekadsye.tanghe.ActionAndPool.ForseeableAction;
 import vandekadsye.tanghe.ActionAndPool.SequentialScheduler;
 import vandekadsye.tanghe.ActionAndPool.Exceptions.ActionFinishedException;
 
-public class SequentialSchedulerTest {
+public class SequentialSchedulerTest extends ForseeableActionTest {
 
 	@Test
-	public void testProgression() {
+	public void testProgression() throws ActionFinishedException {
 		List<Action> list = new ArrayList<Action>();
 		Action a1 = new ForseeableAction(1);
 		Action a2 = new ForseeableAction(2);
@@ -23,39 +23,13 @@ public class SequentialSchedulerTest {
 		list.add(a2);
 		
 		SequentialScheduler s = new SequentialScheduler(list);
-		/*
-		 * At this time:
-		 * 						+-----------------------------------------------+
-		 * 						|		 Expected value for object...			|
-		 * +--------------------+---------------------------+-------------------+
-		 * | Method				|  s	| action1 (1 step)	| action2 (2 steps)	|
-		 * +--------------------+---------------------------+-------------------+
-		 * | isReady()			| true	| true				| true				| 
-		 * +--------------------+---------------------------+-------------------+
-		 * | isInProgress()		| false	| false				| false				| 
-		 * +--------------------+---------------------------+-------------------+
-		 * | isFinished()		| false	| false				| false				| 
-		 * +--------------------+---------------------------+-------------------+
-		 */
-		assertTrue(s.isReady());
-		assertFalse(s.isInProgress());
-		assertFalse(s.isFinished());
+		testIsReady(s);
 		
-		assertTrue(a1.isReady());
-		assertFalse(a1.isInProgress());
-		assertFalse(a1.isFinished());
-		
-		assertTrue(a2.isReady());
-		assertFalse(a2.isInProgress());
-		assertFalse(a2.isFinished());
+		testIsReady(a1);
+		testIsReady(a2);
 		
 		// Doing a step
-		try {
-			s.doStep();
-		} catch (ActionFinishedException e) {
-			fail("Thrown ActionFinishedException at a time it should not.");
-		}
-		
+		s.doStep();
 		
 		/*
 		 * At this time:
