@@ -28,7 +28,7 @@ public class Main {
 			System.out.println(nbstep);
 			s.doStep();
 		}
-		System.out.println("Finished in:"+nbstep+"steps");
+		System.out.println("\nFinished in "+nbstep+" steps");
 
 	}
 

@@ -28,7 +28,6 @@ public class SequentialScheduler extends Scheduler {
             {	
             
                 this.getActions().remove(0);
-                System.out.println("An action is finished");
             }
             
             hasStarted = true;
