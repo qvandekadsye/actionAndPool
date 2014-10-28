@@ -37,11 +37,11 @@ public class Swimmer extends SequentialScheduler {
 		ResourcefulUser<Cubicle>cubicleUser=new ResourcefulUser<Cubicle>();
 		addAction(new TakeResourceAction<Basket>(basketManager,basketUser));
 		addAction(new TakeResourceAction<Cubicle>(cubicleManager,cubicleUser));
-		addAction(new ForseeableAction(timeToUndress));
+		addAction(new ForseeableAction(timeToUndress, "getting undressed"));
 		addAction(new FreeResourceAction<Cubicle>(cubicleManager,cubicleUser));
-		addAction(new ForseeableAction(timeToSwim));
+		addAction(new ForseeableAction(timeToSwim, "swimming"));
 		addAction(new TakeResourceAction<Cubicle>(cubicleManager,cubicleUser));
-		addAction(new ForseeableAction(timeToDress));
+		addAction(new ForseeableAction(timeToDress, "getting dressed"));
 		addAction(new FreeResourceAction<Cubicle>(cubicleManager,cubicleUser));
 		addAction(new FreeResourceAction<Basket>(basketManager,basketUser));
 	}

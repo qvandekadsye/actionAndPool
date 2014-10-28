@@ -4,6 +4,7 @@ public class ForseeableAction extends Action{
 
 	private int currentStep;
 	private int numberOfSteps;
+	private String actionName;
 	
 	/**
 	 * Constructor
@@ -17,6 +18,15 @@ public class ForseeableAction extends Action{
 		
 		this.numberOfSteps = numberOfSteps;
 		this.currentStep = 0;
+		
+		actionName = "";
+	}
+	
+	public ForseeableAction(int numberOfSteps, String actionName) {
+		
+		this(numberOfSteps);
+		this.actionName = actionName;
+		
 	}
 	
 	public boolean isFinished()
@@ -25,7 +35,6 @@ public class ForseeableAction extends Action{
 		if(this.currentStep==this.numberOfSteps)
 		{
 			result=true;
-			System.out.println("A forseable action is finished");
 		}
 		
 		return result;
@@ -45,7 +54,7 @@ public class ForseeableAction extends Action{
 	public void doStep()
 	{
 		this.currentStep++;
-		System.out.println("Action " +this.currentStep+"/"+this.numberOfSteps+" is done");
+		System.out.println("is "+actionName+" ("+this.currentStep+"/"+this.numberOfSteps+")");
 	}
 
 	@Override
