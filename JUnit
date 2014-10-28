@@ -1,7 +1,7 @@
 /!\ Penser à tester les méthodes héritées lorsqu'il y en a (au moins une fois)
 
 Quentin :
-	- BasketPool
+	- BasketPool(OK)
 	- FreeResourceAction
 	- TakeResourceAction
 

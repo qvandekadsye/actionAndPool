@@ -24,8 +24,10 @@ public class TakeResourceAction<R extends Resource> extends Action {
 
 	@Override
 	public boolean isInProgress() {
-		// TODO Auto-generated method stub
-		return false;
+		if(isFinished()==false && isReady()==false)
+			return true;
+		else
+			return false;
 	}
 
 	@Override
