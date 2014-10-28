@@ -58,12 +58,14 @@ public class FreeResourceActionTest {
 	@Test
 	public void isInProgressTest() throws ActionFinishedException
 	{
-		aCubiclePool=new CubiclePool(0);
+		aCubiclePool=new CubiclePool(6);
 		aUser=new ResourcefulUser<Cubicle>();
 		takeAction=new TakeResourceAction<Cubicle>(aCubiclePool,aUser);
 		freeAction=new FreeResourceAction<Cubicle>(aCubiclePool,aUser);
-		assertFalse(freeAction.isInProgress());
 		takeAction.doStep();
+		assertFalse(freeAction.isInProgress());
+		aCubiclePool=new CubiclePool(4);
+		freeAction.doStep();
 		assertTrue(freeAction.isInProgress());
 	}
 	
