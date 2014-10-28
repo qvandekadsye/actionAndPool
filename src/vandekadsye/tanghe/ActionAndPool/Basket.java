@@ -7,8 +7,8 @@ public class Basket implements Resource {
 	 */
 	@Override
 	public String description() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return "A basket";
 	}
 
 }
