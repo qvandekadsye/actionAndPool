@@ -21,10 +21,24 @@ public class BasketPoolTest {
 		
 	}
 	
-	@Test(expected=NoSuchElementException)
+	@Test(expected=NoSuchElementException.class)
 	public void NoSuchElementExceptionTest()
 	{
-		
+		baskets=new BasketPool(2);
+		Basket basket1=baskets.provideResource();
+		Basket basket2=baskets.provideResource();
+		Basket basket3=baskets.provideResource();
+	}
+	
+	@Test
+	public void freeResourceTest()
+	{
+		baskets=new BasketPool(3);
+		Basket basket1=baskets.provideResource();
+		Basket basket2=baskets.provideResource();
+		Basket basket3=baskets.provideResource();
+		baskets.freeResource(basket3);
+		assertNull(basket3);
 	}
 
 }
