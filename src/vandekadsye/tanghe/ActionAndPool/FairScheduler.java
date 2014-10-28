@@ -47,7 +47,6 @@ public class FairScheduler extends Scheduler {
             
 	            if(this.getActions().get(this.currentAction).isFinished()) {
 	            	
-	            	System.out.println("An action is finished in fscheduler:"+this.getActions().get(this.currentAction).getClass().getName());
 	                this.getActions().remove(this.currentAction);
 	                currentAction = -1;
 	                

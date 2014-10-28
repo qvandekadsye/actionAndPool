@@ -14,13 +14,16 @@ public abstract class ResourcePool<R>
 
 	protected List<R> resources;
 	protected List<R> providedResources;
+	private String typeName;
 
 	/**
 	 * Class constructor
 	 * @param nbResources the number of resources that the pool will have to manage.
 	 */
-	public ResourcePool(int nbResources) {
+	public ResourcePool(int nbResources, String typeName) {
 
+		this.typeName = typeName;
+		
 		this.resources = new ArrayList<R>();
 		this.providedResources = new ArrayList<R>();
 		
@@ -84,5 +87,9 @@ public abstract class ResourcePool<R>
 	 * @return the instance of the resource.
 	 */
 	public abstract R createInstanceOfR();
+
+	public String getResourceType() {
+		return typeName;
+	}
 
 }

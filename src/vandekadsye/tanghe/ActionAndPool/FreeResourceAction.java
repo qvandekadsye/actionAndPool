@@ -37,7 +37,7 @@ public class FreeResourceAction<R extends Resource> extends Action{
 		}
 		else
 		{
-			System.out.println("Ressource is free");
+			System.out.println("freeing resource from pool " + pool.getResourceType());
 			return true;
 		}
 	}

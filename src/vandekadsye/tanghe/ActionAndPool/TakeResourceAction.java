@@ -1,5 +1,7 @@
 package vandekadsye.tanghe.ActionAndPool;
 
+import java.util.NoSuchElementException;
+
 import vandekadsye.tanghe.ActionAndPool.Exceptions.ActionFinishedException;
 
 public class TakeResourceAction<R extends Resource> extends Action {
@@ -39,13 +41,11 @@ public class TakeResourceAction<R extends Resource> extends Action {
 	public boolean isFinished() {
 		if(user.getResource()==null)
 		{
-			System.out.println("Ressource is not taken");
 			return false;
 		}
 			
 		else
 		{
-			System.out.println("Ressource is taken");
 			return true;
 		}
 	}
@@ -55,11 +55,15 @@ public class TakeResourceAction<R extends Resource> extends Action {
 		
 		hasStarted = true;
 		
-		System.out.println("Trying to take " +this.pool.getClass().getName());
+		System.out.print("trying to take resource from pool " +this.pool.getResourceType()+"... ");
 		if(!isFinished())
 		{
-			
-			user.setResource(pool.provideResource());
+			try {
+				user.setResource(pool.provideResource());
+				System.out.println("success");
+			} catch(NoSuchElementException e) {
+				System.out.println("failed");
+			}
 			
 		}
 		else

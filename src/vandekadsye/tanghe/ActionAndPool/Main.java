@@ -25,7 +25,6 @@ public class Main {
 		while(!s.isFinished())
 		{
 			nbstep++;
-			System.out.println(nbstep);
 			s.doStep();
 		}
 		System.out.println("\nFinished in "+nbstep+" steps");

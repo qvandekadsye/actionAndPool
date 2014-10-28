@@ -7,7 +7,7 @@ public class CubiclePool extends ResourcePool<Cubicle> {
 	 */
 	public CubiclePool(int nbCubicle)
 	{
-		super(nbCubicle);
+		super(nbCubicle, "basket");
 	}
 
 	@Override
