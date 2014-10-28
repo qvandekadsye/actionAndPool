@@ -39,65 +39,38 @@ public class SequentialSchedulerTest extends ForseeableActionTest {
 		
 		// Step 1/2 for a2
 		s.doStep();
+		testIsInProgress(s);
+		testIsFinished(a1);
+		testIsInProgress(a2);
+		testIsReady(a3);
 		
-		/*
-		 * At this time:
-		 * 						+-----------------------------------------------+
-		 * 						|		 Expected value for object...			|
-		 * +--------------------+---------------------------+-------------------+
-		 * | Method				|  s	| action1 (1 step)	| action2 (2 steps)	|
-		 * +--------------------+---------------------------+-------------------+
-		 * | isReady()			| false	| false				| false				| 
-		 * +--------------------+---------------------------+-------------------+
-		 * | isInProgress()		| true	| false				| true				| 
-		 * +--------------------+---------------------------+-------------------+
-		 * | isFinished()		| false	| true				| false				| 
-		 * +--------------------+---------------------------+-------------------+
-		 */
-		assertFalse(s.isReady());
-		assertTrue(s.isInProgress());
-		assertFalse(s.isFinished());
+		// Step 2/2 for a2
+		s.doStep();
+		testIsInProgress(s);
+		testIsFinished(a1);
+		testIsFinished(a2);
+		testIsReady(a3);
 		
-		assertFalse(a1.isReady());
-		assertFalse(a1.isInProgress());
-		assertTrue(a1.isFinished());
+		// Step 1/3 for a3
+		s.doStep();
+		testIsInProgress(s);
+		testIsFinished(a1);
+		testIsFinished(a2);
+		testIsInProgress(a3);
 		
-		assertFalse(a2.isReady());
-		assertTrue(a2.isInProgress());
-		assertFalse(a2.isFinished());
+		// Step 2/3 for a3
+		s.doStep();
+		testIsInProgress(s);
+		testIsFinished(a1);
+		testIsFinished(a2);
+		testIsInProgress(a3);
 		
-		// Doing a step
-		try {
-			s.doStep();
-		} catch(ActionFinishedException e) {
-			fail("Thrown ActionFinishedException at a time it should not.");
-		}
-		
-		/*
-		 * At this time:
-		 * 						+-----------------------------------------------+
-		 * 						|		 Expected value for object...			|
-		 * +--------------------+---------------------------+-------------------+
-		 * | Method				|  s	| action1 (1 step)	| action2 (2 steps)	|
-		 * +--------------------+---------------------------+-------------------+
-		 * | isReady()			| false	| false				| false				| 
-		 * +--------------------+---------------------------+-------------------+
-		 * | isInProgress()		| false	| false				| false				| 
-		 * +--------------------+---------------------------+-------------------+
-		 * | isFinished()		| true	| true				| true				| 
-		 * +--------------------+---------------------------+-------------------+
-		 */
-		assertFalse(s.isReady());
-		assertFalse(s.isInProgress());
-		assertTrue(s.isFinished());
-		
-		assertFalse(s.getAction(0).isReady());
-		assertFalse(s.getAction(0).isInProgress());
-		assertTrue(s.getAction(0).isFinished());
-		
-		assertFalse(s.getAction(1).isReady());
-		assertFalse(s.getAction(1).isInProgress());
-		assertTrue(s.getAction(1).isFinished());
+		// Step 3/3 for a3
+		s.doStep();
+		testIsFinished(s);
+		testIsFinished(a1);
+		testIsFinished(a2);
+		testIsFinished(a3);
 		
 		try {
 			s.doStep();
