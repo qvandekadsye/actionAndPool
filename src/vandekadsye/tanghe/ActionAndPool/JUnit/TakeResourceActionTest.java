@@ -27,6 +27,38 @@ public class TakeResourceActionTest {
 		
 	}
 	
+	@Test
+	public void isFinishedTest() throws ActionFinishedException
+	{
+		aCubiclePool=new CubiclePool(5);
+		aUser=new ResourcefulUser<Cubicle>();
+		theAction=new TakeResourceAction<Cubicle>(aCubiclePool,aUser);
+		assertFalse(theAction.isFinished());
+		theAction.doStep();
+		assertTrue(theAction.isFinished());
+	}
+	
+	@Test
+	public void isReadyTest() throws ActionFinishedException
+	{
+		aCubiclePool=new CubiclePool(5);
+		aUser=new ResourcefulUser<Cubicle>();
+		theAction=new TakeResourceAction<Cubicle>(aCubiclePool,aUser);
+		assertTrue(theAction.isReady());
+		theAction.doStep();
+		assertFalse(theAction.isReady());
+	}
+	
+	@Test
+	public void isInProgressTest() throws ActionFinishedException
+	{
+		aCubiclePool=new CubiclePool(0);
+		aUser=new ResourcefulUser<Cubicle>();
+		theAction=new TakeResourceAction<Cubicle>(aCubiclePool,aUser);
+		assertFalse(theAction.isInProgress());
+		theAction.doStep();
+		assertTrue(theAction.isInProgress());
+	}
 	
 
 }
