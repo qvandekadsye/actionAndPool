@@ -31,7 +31,7 @@ public class SequentialScheduler extends Scheduler {
                 System.out.println("An action is finished");
             }
             
-            progress++;
+            hasStarted = true;
         
         }
         
