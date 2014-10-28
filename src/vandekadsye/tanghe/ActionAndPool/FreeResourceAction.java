@@ -5,6 +5,7 @@ import vandekadsye.tanghe.ActionAndPool.Exceptions.ActionFinishedException;
 public class FreeResourceAction<R extends Resource> extends Action{
 	private ResourcePool<R> pool;
 	private ResourcefulUser<R> user;
+	private boolean hasStarted;
 	
 	/**
 	 * @param poolToUse the pool taking the resource.
@@ -14,18 +15,21 @@ public class FreeResourceAction<R extends Resource> extends Action{
 	{
 		this.pool=poolToUse;
 		this.user=aUser;
+		
+		hasStarted = false;
 	}
 
 	@Override
 	public boolean isReady() {
-		// TODO Auto-generated method stub
-		return true;
+		if(!isInProgress() && !isFinished())
+			return true;
+		else
+			return false;
 	}
 
 	@Override
 	public boolean isInProgress() {
-		// TODO Auto-generated method stub
-		return false;
+		return (hasStarted && !isFinished());
 	}
 
 	@Override
@@ -44,6 +48,9 @@ public class FreeResourceAction<R extends Resource> extends Action{
 
 	@Override
 	public void doStep() throws ActionFinishedException {
+		
+		hasStarted = true;
+		
 		if(!isFinished())
 		{
 			pool.freeResource(user.getResource());
