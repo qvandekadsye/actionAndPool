@@ -2,6 +2,10 @@ package vandekadsye.tanghe.ActionAndPool;
 
 import vandekadsye.tanghe.ActionAndPool.Exceptions.ActionFinishedException;
 
+/**
+ * @author quentin
+ *
+ */
 public class Main {
 
 	/**
