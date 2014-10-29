@@ -48,7 +48,7 @@ public class FairScheduler extends Scheduler {
 	            if(this.getActions().get(this.currentAction).isFinished()) {
 	            	
 	                this.getActions().remove(this.currentAction);
-	                currentAction = -1;
+	                currentAction--;
 	                
 	            }
             
