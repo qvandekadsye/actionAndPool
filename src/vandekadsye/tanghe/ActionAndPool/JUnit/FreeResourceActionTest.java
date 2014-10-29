@@ -66,6 +66,7 @@ public class FreeResourceActionTest {
 		assertFalse(freeAction.isInProgress());
 		aCubiclePool=new CubiclePool(4);
 		freeAction.doStep();
+		assertTrue(freeAction.isFinished());
 		assertTrue(freeAction.isInProgress());
 	}
 	
