@@ -32,7 +32,7 @@ public class Swimmer extends SequentialScheduler {
 	 * @param timeToSwim number of step for action swim.
 	 * @param timeToDress number of step for action dress.
 	 */
-	public void initializing(int timeToUndress, int timeToSwim, int timeToDress) {
+	private void initializing(int timeToUndress, int timeToSwim, int timeToDress) {
 		ResourcefulUser<Basket> basketUser=new ResourcefulUser<Basket>();
 		ResourcefulUser<Cubicle>cubicleUser=new ResourcefulUser<Cubicle>();
 		addAction(new TakeResourceAction<Basket>(basketManager,basketUser));
