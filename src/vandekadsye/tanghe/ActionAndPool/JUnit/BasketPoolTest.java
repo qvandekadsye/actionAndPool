@@ -30,16 +30,6 @@ public class BasketPoolTest {
 		Basket basket3=baskets.provideResource();
 	}
 	
-	@Test(expected=IllegalArgumentException.class)
-	public void freeResourceTest()
-	{
-		baskets=new BasketPool(3);
-		Basket basket1=baskets.provideResource();
-		Basket basket2=baskets.provideResource();
-		Basket basket3=baskets.provideResource();
-		baskets.freeResource(basket3);
-		baskets.freeResource(basket3);
-		
-	}
+	
 
 }
